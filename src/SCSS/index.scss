@@ -1,0 +1,151 @@
+@import '_variables';
+@import 'general';
+
+#container {
+  width: 100vw;
+  max-width: $desktop;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+
+  #logo {
+    height: 154px;
+    object-fit: none;
+    width: 100%;
+    background: $light-grey-cyan-1;
+  }
+
+  #calculator {
+    padding: $padding;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    @include desktop {
+      flex-direction: row;
+    }
+
+    #config {
+      width: 100%;
+
+      @include desktop {
+        width: 50%;
+        margin: $padding;
+      }
+
+      .input-field {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        position: relative;
+        margin-bottom: $inner-padding * 2;
+
+        input {
+          width: 100%;
+          background: $light-grey-cyan-2;
+          border: none;
+          outline: none;
+          height: 76px;
+
+          font-size: 24px;
+          padding: $inner-padding;
+          padding-left: $inner-padding * 3;
+          color: $very-dark-cyan;
+          font-weight: bold;
+          text-align: right;
+        }
+
+        img {
+          position: absolute;
+          bottom: 38px;
+          left: $inner-padding;
+          transform: translateY(50%);
+        }
+      }
+
+      #percentage {
+        width: 100%;
+        margin-bottom: $inner-padding * 2;
+
+        #percentage-buttons {
+          width: 100%;
+          display: grid;
+          grid-template-columns: 50% 50%;
+          grid-gap: $inner-padding;
+
+
+          input {
+            outline: none;
+            border: none;
+            background: $light-grey-cyan-2;
+            color: $very-dark-cyan;
+            font-weight: bold;
+            font-size: 24px;
+            text-align: right;
+            padding: $inner-padding;
+
+            -moz-appearance: textfield;
+            &::-webkit-outer-spin-button, &::-webkit-inner-spin-button {
+              -webkit-appearance: none;
+              margin: 0;
+            }
+          }
+        }
+      }
+    }
+
+    #results {
+      background: $very-dark-cyan;
+      padding: $inner-padding;
+      border-radius: $inner-padding;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      @include desktop {
+        width: 50%;
+        margin: $padding;
+        padding: $padding;
+      }
+
+
+      .total {
+        margin-bottom: $inner-padding;
+        display: flex;
+        flex-direction: column;
+
+        @include tablet {
+          flex-direction: row;
+          justify-content: space-between;
+        }
+
+        .text {
+          display: flex;
+          flex-direction: column;
+
+          .title {
+            color: white;
+          }
+
+          .subheading {
+            color: $dark-grey-cyan-1;
+            font-size: 18px;
+            white-space: nowrap;
+          }
+        }
+
+        .amount {
+          color: $strong-cyan;
+          font-size: 48px;
+        }
+      }
+
+      #reset-button {
+        width: 100%;
+      }
+    }
+  }
+}
